@@ -275,7 +275,7 @@ void CInstancingShader::BuildObjects( ID3D11Device *pd3dDevice )
 	dre.seed( (unsigned int)time( NULL ) );
 	//uniform_int_distribution<>color( 0, 255 );    // 색상에 대한 분포
 	uniform_real_distribution<float>p4( -3, 3 );    //+-
-	uniform_real_distribution<float>mP( -10, 10 );    // 위치값
+	uniform_real_distribution<float>mP( 0, 360 );    // 위치값
 	uniform_real_distribution<float>mD( -0.0005, 0.0100000 );    // 움직이는 방향
 	uniform_int_distribution<> ui;
 
@@ -292,7 +292,7 @@ void CInstancingShader::BuildObjects( ID3D11Device *pd3dDevice )
 		pRotatingObject->setDirection( mD( dre ) * p4( dre ), mD( dre ) * p4( dre ), mD( dre ) * p4( dre ) );
 		pRotatingObject->SetPosition( 0, 10, 0 );
 		//pRotatingObject->SetRotationAxis( D3DXVECTOR3( 0.0f, 1.0f, 0.0f ) );
-		pRotatingObject->SetRotationSpeed( 45 );
+		pRotatingObject->SetRotationSpeed( mP(dre) );
 		m_ppObjects[i] = pRotatingObject;
 	}
 

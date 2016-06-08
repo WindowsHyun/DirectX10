@@ -211,8 +211,6 @@ void CRotatingObject::Animate(float fTimeElapsed)
 	RectangleCD3();
 	RectangleCD4();
 	RectangleCD5();
-	//m_d3dxmtxWorld._41 += 0.001;
-
 }
 
 void CRotatingObject::Render(ID3D11DeviceContext *pd3dDeviceContext)
